@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TransportLayerSimulator.iml" filepath="$PROJECT_DIR$/TransportLayerSimulator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tls.iml" filepath="$PROJECT_DIR$/tls.iml" />
     </modules>
   </component>
 </project>
