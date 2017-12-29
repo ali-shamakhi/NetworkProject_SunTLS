@@ -2,7 +2,7 @@ package ir.arcinc.tls.ReliableChannel;
 
 public class Util {
     public static byte getNextSeqNum(byte seqNum) {
-        return (seqNum == (byte)0 ? (byte)1 : (byte)0);
+        return (byte)((seqNum % 128) + 1);
     }
 
     public static byte byteRotateLeft(int b, int amount) {

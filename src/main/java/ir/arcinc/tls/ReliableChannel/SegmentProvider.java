@@ -1,6 +1,8 @@
 package ir.arcinc.tls.ReliableChannel;
 
 import java.util.Arrays;
+import java.util.zip.CRC32;
+import java.util.zip.Checksum;
 
 public class SegmentProvider {
 
@@ -39,8 +41,8 @@ public class SegmentProvider {
     public byte[] getMessage() {
         return Arrays.copyOfRange(segmentNoChecksum, 1, segmentNoChecksum.length);
     }
-    // test
 
+    // test
     public static void main(String[] args) {
         SegmentProvider s;
 
@@ -77,6 +79,13 @@ public class SegmentProvider {
         sum += Util.byteRotateLeft(data[data.length - endOffset - 1], data.length - endOffset);
         return (byte)(~sum);
     }
+
+//    public static byte checksum2(byte[] data, int endOffset) {
+//        byte[] message = Arrays.copyOfRange(data, 0, data.length - endOffset);
+//        Checksum checksum = new CRC32();
+//        checksum.update(message, 0, message.length);
+//        return (byte) ((checksum.getValue() % 256) - 128);
+//    }
 
     public static boolean validSegment(byte[] segment) {
         return(checksum(segment, 2) == segment[segment.length - 2])

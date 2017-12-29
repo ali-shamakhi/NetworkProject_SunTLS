@@ -37,7 +37,6 @@ public class Sender extends AbstractSender {
             lastSentSegmentAcked = false;
             lastSentSeqNum = segmentQueue.getFirst().getSeqNum();
             //System.out.println("SND: byte " + Arrays.toString(data));
-            IntegrityChecker.sentMessage(lastSentSeqNum, data);
             send(segmentQueue.getFirst().getSegment());
         }
     }

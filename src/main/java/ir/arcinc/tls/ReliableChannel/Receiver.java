@@ -35,7 +35,6 @@ public class Receiver extends AbstractReceiver {
                 //System.out.println("RCV: got " + segData.getSeqNum());
                 byte[] message = segData.getMessage();
                 sendToApplication(message);
-                IntegrityChecker.receivedMessage(nextReceivingSeqNum, message);
                 //System.out.println("RCV: byte " + Arrays.toString(segData.getMessage()));
                 nextReceivingSeqNum = Util.getNextSeqNum(nextReceivingSeqNum);
             }
